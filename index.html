@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For My Love 💖</title>
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #ffd1dc, #ffb6c1);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+}
+
+h1 {
+  color: #d63384;
+}
+
+img {
+  width: 150px;
+  margin: 20px 0;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background-color: #28a745;
+  color: white;
+}
+
+#noBtn {
+  background-color: #dc3545;
+  color: white;
+  position: absolute;
+}
+
+#finalMessage {
+  display: none;
+  font-size: 28px;
+  color: #d63384;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 id="question">Will you be my Valentine? 💕</h1>
+  <img id="character" src="https://tenor.com/en-GB/view/capybara-heart-cute-peck-gif-2233672245489072944">
+
+  <div>
+    <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
+    <button id="noBtn" onmouseover="moveNo()">No 😢</button>
+  </div>
+
+  <div id="finalMessage">You're my favourite person in the whole entire world. Happy Valentine's Day, my love 💗</div>
+</div>
+<button id="letterBtn" onclick="showLetter()" style="display:none; margin-top:20px;">
+Read My Love Letter 💌
+</button>
+
+<div id="loveLetter" style="display:none; max-width:500px; margin:20px auto; background:white; padding:25px; border-radius:15px; box-shadow:0 0 20px rgba(0,0,0,0.1);">
+<h2>To My Favourite Person 💖</h2>
+<p>
+To my home, my safe space, my love..
+You calm me when I spiral, you make me laugh when I needed it,
+You make my days better just by being by my side
+You're there when I need you the most
+and you make loving feel safe and fun.
+
+We've had our ups and downs, our highs and lows.
+But through it all you stuck around.
+It hasn't been easy but it was worth it.
+You're worth it.
+
+I don’t just want you for Valentine’s Day.
+I want you everyday.
+I want you during the hard times and easy times.
+I want you when we’re both tired and imperfect.
+I want you and only you.
+
+Thank you for choosing me.
+And I promise I’ll keep choosing you too.
+
+I love you more than you know and more than I'll ever be able to show you.
+</p>
+<p>Forever yours ❤️</p>
+</div>
+
+
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const messages = [
+  "You're stuck with me 😤",
+  "Love please… 😭",
+  "You already love me anyway 😤",
+  "You can’t say no 😈",
+  "Say yes, my love 😘"
+];
+
+let index = 0;
+
+function moveNo() {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+
+  document.getElementById("question").innerText = messages[index];
+  index = (index + 1) % messages.length;
+}
+
+function sayYes() {
+  document.getElementById("question").style.display = "none";
+  document.getElementById("character").style.display = "none";
+  noBtn.style.display = "none";
+  document.getElementById("yesBtn").style.display = "none";
+  document.getElementById("finalMessage").style.display = "block";
+  document.getElementById("letterBtn").style.display = "inline-block";
+
+  createHearts();
+}
+
+function showLetter() {
+  document.getElementById("loveLetter").style.display = "block";
+}
+
+function createHearts() {
+  for (let i = 0; i < 30; i++) {
+    const heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = "-20px";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    heart.style.animation = "fall 3s linear forwards";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 3000);
+  }
+}
+</script>
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+
+
