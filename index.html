@@ -55,6 +55,12 @@ button {
   color: #d63384;
   margin-top: 20px;
 }
+  @keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
 </style>
 </head>
 
@@ -62,7 +68,7 @@ button {
 
 <div class="container">
   <h1 id="question">Will you be my Valentine? 💕</h1>
-  <img id="character" src="https://tenor.com/cPapcEdGvwy.gif">
+  <img id="character" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGRtdTIxajFkOG1nMmgzaWkzdnYwcG5oMWhhdzJvYTU3czhmMjV2MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aTGFa4HAIcRnZ52dJb/giphy.gif">
 
   <div>
     <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
@@ -159,13 +165,6 @@ function createHearts() {
   }
 }
 </script>
-
-@keyframes fall {
-  to {
-    transform: translateY(100vh);
-    opacity: 0;
-  }
-}
 
 
 
